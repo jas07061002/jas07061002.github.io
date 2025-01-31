@@ -4,45 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    h1, h2 {
-      color: #333;
-    }
-    .project {
-      margin-bottom: 20px;
-    }
-    .project h3 {
-      color: #2a5d84;
-    }
-    .project p {
-      font-size: 1.1rem;
-    }
-    .project a {
-      color: #ff6347;
-      text-decoration: none;
-    }
-    .project a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Welcome to My Portfolio</h1>
-  <p>As a software engineer passionate about machine learning, I’ve worked on several exciting projects. Below are a couple of my binary classification projects:</p>
+<body class="bg-gray-100 text-gray-900">
 
-  <div class="project">
-    <h3>Binary Classification Project 1: Customer Churn Prediction</h3>
-    <p>This project predicts whether a customer will churn based on historical data. The notebook contains data preprocessing, model training, and evaluation. <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank">View the Notebook on Google Colab</a></p>
-  </div>
+  <!-- Header -->
+  <header class="bg-blue-700 text-white py-8 text-center">
+    <h1 class="text-4xl font-semibold">Welcome to My Portfolio</h1>
+  </header>
 
-  <div class="project">
-    <h3>Binary Classification Project 2: Fraud Detection</h3>
-    <p>This project detects fraudulent transactions using machine learning techniques. It includes feature engineering, model tuning, and performance evaluation. <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank">View the Notebook on Google Colab</a></p>
-  </div>
+  <!-- Main Content -->
+  <section class="max-w-4xl mx-auto p-8">
+    <p class="text-xl mb-6">As a software engineer passionate about machine learning, I’ve worked on several exciting projects. Below are a couple of my binary classification projects:</p>
 
-  <p>Feel free to explore my work and contact me for more details or collaborations!</p>
+    <!-- Project 1 -->
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6 hover:shadow-2xl transition duration-300">
+      <h3 class="text-2xl font-semibold text-blue-700 mb-4">Binary Classification Project 1: Customer Churn Prediction</h3>
+      <p class="text-lg mb-4">This project predicts whether a customer will churn based on historical data. The notebook contains data preprocessing, model training, and evaluation.</p>
+      <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="text-orange-500 hover:underline font-semibold">View the Notebook on Google Colab</a>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6 hover:shadow-2xl transition duration-300">
+      <h3 class="text-2xl font-semibold text-blue-700 mb-4">Binary Classification Project 2: Fraud Detection</h3>
+      <p class="text-lg mb-4">This project detects fraudulent transactions using machine learning techniques. It includes feature engineering, model tuning, and performance evaluation.</p>
+      <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="text-orange-500 hover:underline font-semibold">View the Notebook on Google Colab</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-700 text-white text-center py-4">
+    <p>&copy; 2025 Jasmine | All Rights Reserved</p>
+  </footer>
+
 </body>
 </html>
