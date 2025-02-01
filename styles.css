@@ -1,8 +1,34 @@
+html,
+body {
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a; /* Ensure consistent background color */
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
     color: #ddd;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;  /* Enable vertical scrolling */
 }
+
+#main-content {
+    flex-grow: 1; /* Allow it to expand and take available height */
+    overflow: auto; /* Ensure it scrolls correctly if needed */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;  /* Ensure it expands to fit the screen */
+    overflow-y: auto; /* Allow vertical scroll inside container */
+}
+
 
 .glow-text {
     color: #fff;
@@ -24,6 +50,10 @@ body {
     height: 300px;
     max-width: 350px;
     perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden; /* Prevent overflow */
 }
 
 .project-tile:hover {
@@ -70,14 +100,16 @@ body {
 }
 
 .project-tile-back {
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    transform: rotateY(180deg);
+    background-color: rgba(0, 0, 0, 0.9); /* Ensure dark background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  transform: rotateY(180deg);
+  max-height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Ensures consistent color */
 }
 
 .project-tile-back p {
@@ -127,11 +159,28 @@ body {
 /* Highlight the tech stack on the flipped side */
 .highlight-tech-stack {
     font-weight: bold;
-    color: #00f;  /* Blue text for emphasis */
-    text-decoration: underline; /* Underline the text */
-    background-color: rgba(0, 0, 255, 0.1); /* Light blue background */
+    color: #00f;
+    /* Blue text for emphasis */
+    text-decoration: underline;
+    /* Underline the text */
+    background-color: rgba(0, 0, 255, 0.1);
+    /* Light blue background */
     padding: 5px;
     border-radius: 4px;
-    box-shadow: 0 0 8px rgba(0, 0, 255, 0.3); /* Subtle glow effect */
+    box-shadow: 0 0 8px rgba(0, 0, 255, 0.3);
+    /* Subtle glow effect */
+}
+
+/* Prevent any white spaces around the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
   }
   
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
