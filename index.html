@@ -17,6 +17,62 @@
       box-shadow: 0 0 15px #00f, 0 0 25px #00f, 0 0 35px #00f;
       transform: scale(1.05);
     }
+
+    /* Ensuring the project tiles fit with the previous design */
+    .project-tile {
+      background-color: rgba(51, 51, 51, 0.85);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      height: auto; /* Set height to auto for flexibility */
+      max-width: 350px; /* Set max-width to maintain consistency */
+      overflow: hidden; /* Prevent content from overflowing */
+    }
+
+    .project-tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .project-link {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #3b82f6;
+      text-decoration: underline;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Add this to ensure the link is truncated if too long */
+    }
+
+    /* Placeholder style for consistency */
+    .project-placeholder {
+      background-color: #333;
+      color: #aaa;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      border-radius: 8px;
+      font-size: 1.25rem;
+    }
   </style>
 </head>
 <body class="bg-black text-white">
@@ -30,18 +86,38 @@
   <section class="max-w-4xl mx-auto p-8">
     <p class="text-xl mb-6">As a software engineer passionate about machine learning, I’ve worked on several exciting projects. Below are a couple of my binary classification projects:</p>
 
-    <!-- Project 1 -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hover-glow transition duration-300">
-      <h3 class="text-2xl font-semibold glow-text mb-4">Binary Classification Project 1: Customer Churn Prediction</h3>
-      <p class="text-lg mb-4">This project predicts whether a customer will churn based on historical data. The notebook contains data preprocessing, model training, and evaluation.</p>
-      <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="text-blue-400 hover:underline font-semibold">View the Notebook on Google Colab</a>
-    </div>
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <!-- Project 2 -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hover-glow transition duration-300">
-      <h3 class="text-2xl font-semibold glow-text mb-4">Binary Classification Project 2: Fraud Detection</h3>
-      <p class="text-lg mb-4">This project detects fraudulent transactions using machine learning techniques. It includes feature engineering, model tuning, and performance evaluation.</p>
-      <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="text-blue-400 hover:underline font-semibold">View the Notebook on Google Colab</a>
+      <!-- Project 1 -->
+      <div class="project-tile hover-glow transition duration-300">
+        <h3 class="project-title glow-text">Binary Classification Project 1: Customer Churn Prediction</h3>
+        <p class="project-description">This project predicts whether a customer will churn based on historical data. The notebook contains data preprocessing, model training, and evaluation.</p>
+        <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="project-link">View the Notebook on Google Colab</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-tile hover-glow transition duration-300">
+        <h3 class="project-title glow-text">Binary Classification Project 2: Fraud Detection</h3>
+        <p class="project-description">This project detects fraudulent transactions using machine learning techniques. It includes feature engineering, model tuning, and performance evaluation.</p>
+        <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="project-link">View the Notebook on Google Colab</a>
+      </div>
+
+      <!-- Project 3 (Placeholder) -->
+      <div class="project-tile hover-glow transition duration-300">
+        <div class="project-placeholder">Project 3 Placeholder</div>
+      </div>
+
+      <!-- Project 4 (Placeholder) -->
+      <div class="project-tile hover-glow transition duration-300">
+        <div class="project-placeholder">Project 4 Placeholder</div>
+      </div>
+
+      <!-- Project 5 (Placeholder) -->
+      <div class="project-tile hover-glow transition duration-300">
+        <div class="project-placeholder">Project 5 Placeholder</div>
+      </div>
+
     </div>
   </section>
 
