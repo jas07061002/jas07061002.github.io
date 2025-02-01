@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
-  <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* Additional custom styles for futuristic effects */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      color: #ddd;
+    }
+
     .glow-text {
       color: #fff;
       text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 20px #00f, 0 0 40px #00f;
@@ -18,113 +24,180 @@
       transform: scale(1.05);
     }
 
-    /* Ensuring the project tiles fit with the previous design */
     .project-tile {
       background-color: rgba(51, 51, 51, 0.85);
       padding: 20px;
-      border-radius: 8px;
+      border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       cursor: pointer;
-      height: auto; /* Set height to auto for flexibility */
-      max-width: 350px; /* Set max-width to maintain consistency */
-      overflow: hidden; /* Prevent content from overflowing */
+      height: 300px;
+      max-width: 350px;
+      perspective: 1000px;
     }
 
     .project-tile:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 255, 0.3);
+    }
+
+    .project-tile-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+      position: relative;
+    }
+
+    .project-tile:hover .project-tile-inner {
+      transform: rotateY(180deg);
+    }
+
+    .project-tile-front,
+    .project-tile-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
     }
 
     .project-title {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+      /* Increase font size */
       font-weight: 600;
-      margin-bottom: 15px;
+      /* Make it bold */
+      text-align: center;
+      /* Center align */
+      margin-bottom: 10px;
+      /* Add some spacing */
+    }
+
+    .project-tile-front {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-tile-back {
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      transform: rotateY(180deg);
+    }
+
+    .project-tile-back p {
+      font-size: 1rem;
+      margin: 10px 0;
+      color: #bbb;
+    }
+
+    .view-project-btn {
+      background: #00f;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .view-project-btn:hover {
+      background: #008cff;
     }
 
     .project-description {
-      font-size: 1rem;
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
-
-    .project-link {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #3b82f6;
-      text-decoration: underline;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis; /* Add this to ensure the link is truncated if too long */
-    }
-
-    /* Placeholder style for consistency */
-    .project-placeholder {
-      background-color: #333;
-      color: #aaa;
+      font-size: 1.2rem;
+      /* Slightly larger text */
       text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      border-radius: 8px;
-      font-size: 1.25rem;
+      /* Center align */
+      color: #bbb;
+      /* Maintain subtle contrast */
     }
   </style>
 </head>
-<body class="bg-black text-white">
 
-  <!-- Header -->
+<body>
   <header class="bg-black text-white py-8 text-center">
     <h1 class="text-5xl font-semibold glow-text">Welcome to My Portfolio</h1>
   </header>
-
-  <!-- Main Content -->
   <section class="max-w-4xl mx-auto p-8">
-    <p class="text-xl mb-6">As a software engineer passionate about machine learning, I’ve worked on several exciting projects. Below are a couple of my binary classification projects:</p>
-
-    <!-- Projects Grid -->
+    <p class="text-xl mb-6">As a software engineer passionate about machine learning, I’ve worked on several exciting
+      projects.</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- Project 1 -->
       <div class="project-tile hover-glow transition duration-300">
-        <h3 class="project-title glow-text">Binary Classification Project 1: Customer Churn Prediction</h3>
-        <p class="project-description">This project predicts whether a customer will churn based on historical data. The notebook contains data preprocessing, model training, and evaluation.</p>
-        <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="project-link">View the Notebook on Google Colab</a>
+        <div class="project-tile-inner">
+          <div class="project-tile-front">
+            <h3 class="project-title glow-text">Customer Churn Prediction</h3>
+            <p class="project-description">Predicts customer churn using ML techniques.</p>
+          </div>
+          <div class="project-tile-back">
+            <p>Churn prediction using machine learning.</p>
+            <a href="https://colab.research.google.com/drive/your-colab-link" class="view-project-btn"
+              target="_blank">View Project</a>
+          </div>
+        </div>
       </div>
-
-      <!-- Project 2 -->
       <div class="project-tile hover-glow transition duration-300">
-        <h3 class="project-title glow-text">Binary Classification Project 2: Fraud Detection</h3>
-        <p class="project-description">This project detects fraudulent transactions using machine learning techniques. It includes feature engineering, model tuning, and performance evaluation.</p>
-        <a href="https://colab.research.google.com/drive/your-colab-link" target="_blank" class="project-link">View the Notebook on Google Colab</a>
+        <div class="project-tile-inner">
+          <div class="project-tile-front">
+            <h3 class="project-title glow-text">Fraud Detection</h3>
+            <p class="project-description">Detects fraudulent transactions using ML.</p>
+          </div>
+          <div class="project-tile-back">
+            <p>Identifies fraudulent transactions effectively.</p>
+            <a href="https://colab.research.google.com/drive/your-colab-link" class="view-project-btn"
+              target="_blank">View Project</a>
+          </div>
+        </div>
       </div>
-
-      <!-- Project 3 (Placeholder) -->
       <div class="project-tile hover-glow transition duration-300">
-        <div class="project-placeholder">Project 3 Placeholder</div>
+        <div class="project-tile-inner">
+          <div class="project-tile-front">
+            <h3 class="project-title glow-text">Spaceholder for Project 3 </h3>
+            <p class="project-description">Spaceholder for Project 3</p>
+          </div>
+          <div class="project-tile-back">
+            <p>Identifies fraudulent transactions effectively.</p>
+            <a href="https://colab.research.google.com/drive/your-colab-link" class="view-project-btn"
+              target="_blank">View Project</a>
+          </div>
+        </div>
       </div>
-
-      <!-- Project 4 (Placeholder) -->
       <div class="project-tile hover-glow transition duration-300">
-        <div class="project-placeholder">Project 4 Placeholder</div>
+        <div class="project-tile-inner">
+          <div class="project-tile-front">
+            <h3 class="project-title glow-text">Spaceholder for Project 4 </h3>
+            <p class="project-description">Spaceholder for Project 4</p>
+          </div>
+          <div class="project-tile-back">
+            <p>Identifies fraudulent transactions effectively.</p>
+            <a href="https://colab.research.google.com/drive/your-colab-link" class="view-project-btn"
+              target="_blank">View Project</a>
+          </div>
+        </div>
       </div>
-
-      <!-- Project 5 (Placeholder) -->
       <div class="project-tile hover-glow transition duration-300">
-        <div class="project-placeholder">Project 5 Placeholder</div>
+        <div class="project-tile-inner">
+          <div class="project-tile-front">
+            <h3 class="project-title glow-text">Spaceholder for Project 5 </h3>
+            <p class="project-description">Spaceholder for Project 5</p>
+          </div>
+          <div class="project-tile-back">
+            <p>Identifies fraudulent transactions effectively.</p>
+            <a href="https://colab.research.google.com/drive/your-colab-link" class="view-project-btn"
+              target="_blank">View Project</a>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
-
-  <!-- Footer -->
   <footer class="bg-black text-white text-center py-4">
     <p>&copy; 2025 Jasmine | All Rights Reserved</p>
   </footer>
-
 </body>
+
 </html>
